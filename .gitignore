@@ -1,32 +1,177 @@
-# Prerequisites
-*.d
+/* MOVIE TICKET RESERVATION SYSTEM
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+Coded by pratyush mishra
 
-# Precompiled Headers
-*.gch
-*.pch
+Updates will be there soon...
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+Don't copy just collab with me..
 
-# Fortran module files
-*.mod
-*.smod
+*/
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+#include <iostream>
+using namespace std;
 
-# Executables
-*.exe
-*.out
-*.app
+class movie_selection
+{
+    public:
+    int ch_movie;
+    string selected_movie;
+    string a = "Jumanji";
+    string b = "Jurassic World";
+    string c = "Avaatar";
+    string d = "Avenger";
+    
+    void select_movie();
+};
+void movie_selection::select_movie()
+{
+    cout << "Select your movie :" << endl;
+    cout << "1 . Jumanji" << endl; 
+    cout << "2 . Jurassic World" << endl;
+    cout << "3 . Avaatar" << endl;
+    cout << "4 . Avenger" << endl;
+    
+    cin >> ch_movie;
+    
+    switch(ch_movie)    
+    {
+        case 1: selected_movie=a;
+        break;
+        case 2: selected_movie=b;
+        break;
+        case 3: selected_movie=c;
+        break;
+        case 4: selected_movie=d;
+        break;
+    }
+}
+
+class show_time
+{
+    public:
+    int ch_time;
+    string selected_time;
+    string e = "9:00 AM";
+    string f = "12:00 PM";
+    string g = "3:00 PM";
+    string h = "6:00 PM";
+    string i = "9:00 PM";
+    
+    void select_time();
+};
+
+void show_time::select_time()
+{
+    cout << "Select your show time " << endl;
+    cout << "1 . 9:00 AM" << endl; 
+    cout << "2 . 12:00 PM" << endl;
+    cout << "3 . 3:00 PM" << endl;
+    cout << "4 . 6:00 PM" << endl;
+    cout << "5 . 9:00 PM" << endl;
+    
+    cin >> ch_time;
+    
+    switch(ch_time)    
+    {
+        case 1: selected_time=e;
+        break;
+        case 2: selected_time=f;
+        break;
+        case 3: selected_time=g;
+        break;
+        case 4: selected_time=h;
+        break;
+        case 5: selected_time=i;
+        break;
+    }
+}
+
+class cost
+{
+    public:
+        int selected_ticket;
+        int ch_ticket;
+        int j=180;
+        int k=220;
+        int l=260;
+        int total_amount;
+    
+    void select_ticket();
+
+};
+
+void cost::select_ticket()
+{
+    cout << "Select your ticket cost:" << endl;
+    cout << "1 . Gold for 180 Rupees " << endl;
+    cout << "2 . Silver for 220 Rupees" << endl;
+    cout << "3 . Platinum fro 260 Rupees" << endl;
+    
+    cin >> ch_ticket;
+    
+    switch(ch_ticket)
+    {
+        case 1:selected_ticket = j;
+        break;
+        case 2:selected_ticket = k;
+        break;
+        case 3:selected_ticket = l;
+        break;
+    }
+}
+
+int main() {
+    
+     
+    int no_of_ticket;
+    int total_amount;
+  string name;
+    
+    cout << "---------------------MOVIE TICKET RESERVATION SYSTEM-----------------------" << endl;
+    
+    cout << "Enter your name : " ;
+    cin >> name;
+    cout << endl;
+
+    movie_selection ms; 
+    ms.select_movie();
+    
+    show_time st;
+    st.select_time();
+    
+    cout << "Enter number of tickets : ";
+    cin >> no_of_ticket;
+    cout << endl << endl;
+    
+    cost c;
+    c.select_ticket();
+    
+
+    cout << "----------------------------------------------------" << endl << endl;
+    
+    cout << "Your tickets details " << endl << endl;
+    
+  cout << "Name : " << name << endl << endl;
+
+    cout << "Movie Name : " << ms.selected_movie << endl << endl;
+    
+    cout << "Show Timing : " << st.selected_time << endl << endl;
+    
+    cout << "Tickets : " << no_of_ticket << endl << endl;
+    
+    total_amount = c.selected_ticket * no_of_ticket;
+    
+    
+    cout << "Total Amount of your ticket is : " << total_amount << endl << endl;
+    
+
+    if(no_of_ticket >= 5)
+    {
+        cout << "Voila....!!!!   You got one free ticket on purchasing 5 tickets." << endl << endl;
+        no_of_ticket++;
+        cout << "Total tickets " << no_of_ticket << endl << endl;
+    }
+    
+     
+    return 0;
+}
